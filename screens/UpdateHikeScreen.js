@@ -74,8 +74,8 @@ const UpdateHikeScreen = ({ route, navigation }) => {
             <TextInput
                 style={styles.inputInfo}
                 mode="outlined"
-                outlineColor="#3ebe87"
-                activeOutlineColor="#2d8b62"
+                outlineColor="#ff7f27"
+                activeOutlineColor="#ff7f27"
                 label="Name of the Hike"
                 value={hikeName}
                 onChangeText={setHikeName}
@@ -84,8 +84,8 @@ const UpdateHikeScreen = ({ route, navigation }) => {
             <TextInput
                 style={styles.inputInfo}
                 mode="outlined"
-                outlineColor="#3ebe87"
-                activeOutlineColor="#2d8b62"
+                outlineColor="#ff7f27"
+                activeOutlineColor="#ff7f27"
                 label="Location"
                 value={location}
                 onChangeText={setLocation}
@@ -98,17 +98,19 @@ const UpdateHikeScreen = ({ route, navigation }) => {
                     onCancel={hideDatePicker}
                 />
             </View>
-            <TextInput
-                editable={false}
-                style={styles.inputInfo}
-                mode="outlined"
-                outlineColor="#3ebe87"
-                activeOutlineColor="#2d8b62"
-                label="Date of the hike"
-                value={date}
-                onChangeText={setDate}
-                onPressIn={showDatePicker}
-            />
+            <TouchableOpacity onPress={showDatePicker}>
+                <TextInput
+                    editable={false}
+                    style={styles.inputInfo}
+                    mode="outlined"
+                    outlineColor="#ff7f27"
+                    activeOutlineColor="#ff7f27"
+                    label="Date of the hike"
+                    value={date}
+                    onChangeText={setDate}
+                />
+            </TouchableOpacity>
+
 
             <RadioButton.Group  onValueChange={parking => setParking(parking)} value={parking}>
                 <View style={styles.radioButtonContainer}>
@@ -123,8 +125,8 @@ const UpdateHikeScreen = ({ route, navigation }) => {
             <TextInput
             style={styles.inputInfo}
                 mode="outlined"
-                outlineColor="#3ebe87"
-                activeOutlineColor="#2d8b62"
+                outlineColor="#ff7f27"
+                activeOutlineColor="#ff7f27"
                 label="Length of the hike"
                 value={length}
                 onChangeText={setLength}
@@ -132,8 +134,8 @@ const UpdateHikeScreen = ({ route, navigation }) => {
             <TextInput
                 style={styles.inputInfo}
                 editable={false}
-                outlineColor="#3ebe87"
-                activeOutlineColor="#2d8b62"
+                outlineColor="#ff7f27"
+                activeOutlineColor="#ff7f27"
                 mode="outlined"
                 label="Difficulty level"
                 value={level}
@@ -154,15 +156,15 @@ const UpdateHikeScreen = ({ route, navigation }) => {
             <TextInput
                 style={styles.descriptionStyle}
                 mode="outlined"
-                outlineColor="#3ebe87"
-                activeOutlineColor="#2d8b62"
+                outlineColor="#ff7f27"
+                activeOutlineColor="#ff7f27"
                 label="Description"
                 value={description}
                 onChangeText={setDescription}
                 multiline
             />  
-            <TouchableOpacity style={styles.addBtn} onPress={handleEditHike}>
-                <Text style={{color: '#fff', fontSize: 20,}}>Edit</Text>
+            <TouchableOpacity style={styles.updateBtn} onPress={handleEditHike}>
+                <Text style={{color: '#fff', fontSize: 20,}}>Update</Text>
             </TouchableOpacity>
         </ScrollView>
     );
@@ -178,8 +180,8 @@ const styles = StyleSheet.create ({
     marginVertical: 5,
     fontSize: 17,
    },
-   addBtn: {
-    backgroundColor: "#54be4b",
+   updateBtn: {
+    backgroundColor: "#ff7f27",
     padding: 16,
     borderRadius: 9,
     alignItems: "center",
